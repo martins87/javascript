@@ -1,0 +1,183 @@
+==========
+JAVASCRIPT
+
+	Math.abs()	Math.ceil()	Math.floor()	Math.round()	Math.pow(a,b)	Math.sqrt()
+	
+	numeros inteiros aleatorios entre 1 e 10:
+		Math.floor( Math.random() * 10 ) + 1
+
+	string to number:	Number("3.14")
+	string to int:		parseInt("5")
+	string to float:	parseFloat("3.14")
+
+	dealing with strings:						// "Existe um grande clube na cidade."
+		var hino = "Existe um grande clube na cidade.";		//  012345678901234567890123456789012
+		document.write( hino.indexOf("clube") );		// 17
+		document.write( hino.slice(17) );			// "clube na cidade." -> pega a substring a partir do indice passado
+		document.write( hino.slice(17, 22) );			// "clube" -> pega a substring do indice ate uma posicao antes do segundo parametro
+		document.write( hino.substr(17, 5) );			// "clube"
+		var randArray = hino.split(" ");
+		document.write( randArray );				// retorna elementos do array criado: Existe,um,grande,clube,na,cidade.
+
+	Relational operators:	=== == != > < >= <=
+	Logical operators:	&& || !
+
+		"5" == 5	true (os valores sao iguais)
+		"5" === 5	false (os valores sao iguais, mas os tipos sao diferentes)
+
+_____
+LOOPS
+	var i = 0;
+	while(i < 10){
+		document.write(i + "<br/>");
+		i++;
+	}
+
+	for(i = 0; i < 10; i++){
+		document.write( i + "<br/>" );
+	}
+
+	continue;							// jumps to next iteration
+	break;								// jumps outside the loop
+
+_______
+OBJECTS
+
+1)
+	var customer = {name : "Daniel", address : "123 main st", balance : "10"};
+	for(i in customer){
+		document.write(customer[i] + "<br/>");
+	}
+
+2)
+	var customer = {
+		name: "Daniel Martins",
+		speak: function(){					// adds a method to the object
+			return "My name is " + this.name;
+		},
+		address: {
+			street: "123 main st",
+			city: "Belo Horizonte",
+			state: "Minas Gerais"
+		}
+	}
+	customer.address.country = "BR";				// adds a property to the object
+	document.write( customer.speak() + "<br />" );
+	document.write( customer.name + " lives at " + customer.address.street + "<br />");
+
+3)
+	function Person(name, street){
+		this.name = name;
+		this.street = street;
+		this.info = function(){
+			return "My name is " + this.name + " and I live on " + this.street;
+		}
+	}	
+	var daniel = new Person("Daniel Martins", "123 main st");
+	document.write( daniel.info() );				// My name is Daniel Martins and I live on 123 main st
+
+4)
+	function Mammal(name){
+		this.name = name;
+		this.getInfo = function(){
+			return "The mammal's name is " + this.name;
+		}
+	}
+	Mammal.prototype.sound = "Grrrr";				// adds a property to the object
+	Mammal.prototype.makeSound = function(){			// adds a preperty to the object that is a function/method
+		return this.name + " says " + this.sound;
+	}
+	var grover = new Mammal("Grover");
+	document.write( grover.makeSound() );
+	for(var prop in grover){						// name : Grover
+		document.write( prop + " : " + grover[prop] + "<br />");	// getInfo : function (){ return "The mammal name is " + this.name; }
+	}									// sound : Grrrr
+										// makeSound : function (){ return this.name + " says " + this.sound; }
+
+5)
+	Array.prototype.inArray = function(value){			// Array is a javascript built-in object
+		for(i = 0; i < this.length; i++){			// here we add a function to the existing object
+			if(this[i] === value){
+				return true;
+			}
+		}
+		return false;
+	}
+
+______
+ARRAYS
+
+	var array = ["Daniel", 10, "Bitcoin"];
+	array[3] = 5;							// novo elemento eh adicionado
+	array[10] = 5;							// novo elemento eh adicionado no indice 10. os elementos do indice 4 a 9 serao null
+	for(i = 0; i < array.length; i++){
+		document.write(array[i] + "<br>");
+	}
+	delete array[2];						// deleta elemtento no indice 2
+	array.pop();							// deleta o ultimo elemento do array
+	array.push("Martins");						// adiciona o elemento passado como parametro
+
+_________
+FUNCTIONS
+
+	function inArray(array, value){
+		for(i = 0; i < array.length; i++){
+			if(array[i] === value)
+				return true;
+		}
+		return false;
+	}	
+	array = ["Daniel", "Martins", null];
+	document.write( inArray(array, null) );				// true
+
+
+	PASSING FUNCTIONS AS ARGUMENT:
+		function times2(value){
+			return value * 2;
+		}
+			
+		function multiply(func, value){
+			return func(value);
+		}
+			
+		document.write( multiply(times2, 10) );			// 20
+
+	NUMBER OF ARGUMENTS NOT FIXED:
+		function getSum(){
+			var sum = 0;
+			for(i = 0; i < arguments.length; i++){
+				sum += arguments[i];
+			}
+			return sum;
+		}
+		document.write( getSum(1, 2, 3, 4, 5, 6) );		// 21
+
+________________
+ON MOUSE ACTIONS
+
+	<a href="Javascript:void(0)"
+		onmouseover="this.style.color='green'"
+		onmouseout="this.style.color='blue'"
+		ondblclick="this.text='You just double clicked me'"
+		onmousedown="this.text='Don\'t press too hard'"
+		onmouseup="this.text='Thank you'">
+	Link</a>
+
+_____________
+EVENT HANDLER
+
+	https://www.w3schools.com/jsref/dom_obj_event.asp
+
+___________________________________________
+MESSING AROUND WITH text inputs AND onclick
+
+	https://pastebin.com/raw/ZpGPJ603
+
+
+
+
+
+
+
+
+

@@ -19,11 +19,12 @@ JAVASCRIPT
 		var randArray = hino.split(" ");
 		document.write( randArray );				// retorna elementos do array criado: Existe,um,grande,clube,na,cidade.
 
-	Relational operators:	=== == != > < >= <=
+	Relational operators:	=== !== == != > < >= <=
 	Logical operators:	&& || !
 
 		"5" == 5	true (os valores sao iguais)
 		"5" === 5	false (os valores sao iguais, mas os tipos sao diferentes)
+		"3" !== 3	true (valores iguais, mas tipos diferentes)
 
 _____
 LOOPS

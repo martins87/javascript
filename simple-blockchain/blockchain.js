@@ -17,7 +17,6 @@ function addNewBlockData(){
 	var newBlockData = '';
 	var block = blockchain.getLatestBlock();
 	newBlockData += "<b>Block #" + block.index + "</b><br>";
-	newBlockData += "Index: " + block.index + "<br>";
 	newBlockData += "Timestamp: " + block.timestamp + "<br>";
 	newBlockData += "Data: "  + block.data + "<br>";
 	newBlockData += "Previos hash: " + block.previousHash + "<br>";

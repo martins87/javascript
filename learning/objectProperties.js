@@ -1,6 +1,6 @@
 const father = {
-	name: { value: 'Edmundo', writable: true, enumerable: true },
-	hairColor: { value: 'brown', enumerable: false }
+	name: { value: 'Edmundo', writable: false, enumerable: true },
+	hairColor: { value: 'brown', writable: true, enumerable: false }
 }
 			
 const son = Object.create(father)

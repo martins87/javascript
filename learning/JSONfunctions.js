@@ -16,3 +16,14 @@ product.getCompanyCEO()
 	
 let myJSON = JSON.stringify(product)
 console.log(myJSON)
+
+// string
+console.log(typeof myJSON)
+
+const employee1 = JSON.parse(myJSON)
+
+// object
+console.log(typeof employee1)
+
+// prints the newly created object
+console.log(employee1)

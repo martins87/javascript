@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Get HTML from URL</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   </head>
+   <body>
+	<script>
+		console.log('Scrapping...')
+		
+		var url = 'https://www.google.com/';
+		
+		// here we use http://www.whateverorigin.org/
+		$.getJSON('http://www.whateverorigin.org/get?url=' + encodeURIComponent(url) + '&callback=?', function(data){
+			console.log(data.contents)
+		});
+	</script>
+   </body>
+</html>
